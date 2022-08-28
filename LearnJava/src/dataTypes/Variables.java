@@ -35,11 +35,36 @@ public class Variables {
 		*/
 		
 		
-		final int  totalSalary = 10000; // constant
+		final int totalSalary = 10000; // constant
 		
 		// Identifier is about naming a variable. It should have a meaningful name to use in later part of program
-		System.out.println(totalSalary);
+		//System.out.println(totalSalary);
 		
+		/*
+		int x = 10;
+		double y = 12.5;
+		
+		double z = x;
+		System.out.println(x);
+		System.out.println(z);
+		
+		*/
+		
+		//Type Casting
+		
+		char c = 'a';
+		String value = "12345";
+		String name = Integer.toString(totalSalary)+ c;
+		System.out.println(5 + totalSalary);
+		System.out.println(5  + name);
+		
+		System.out.println(value  + 100);
+		System.out.println(Integer.parseInt(value)+100);
+		
+		
+		boolean result ;
+		result = false;
+		System.out.println(result);
 		
 	}
 
