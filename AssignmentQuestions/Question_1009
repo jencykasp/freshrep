@@ -1,0 +1,18 @@
+Initialise , declare and allocate memory to an Float Array
+What is the output of the following code fragments?
+     int [ ] fun = new int [5];
+     fun[0] = 1;
+     fun[1] = 2;
+     fun[2] = 3;
+     fun[3] = 4;
+     fun[4] = 5;
+     int j = 3;
+     System.out.println(fun[ j-1]) ;
+Write a Java program to calculate the average value of array elements.
+Write a Java program to copy an array by iterating the array [without using clone method]
+convert an array to ArrayList.
+remove character ‘A’ from the String “HAPPY PROGRAMMING”
+Try converting String to char and vice versa
+Create a int[] array of values {10,-4,7,8,-3,90,4,-23,6}and print each value whether it is positive or negative
+Using while loop - calculate the sum of first 10 natural number.
+Reverse the integer value 12345, the output should be 54321.
