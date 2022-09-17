@@ -9,12 +9,13 @@ public class Arrayassignment {
 		// TODO Auto-generated method stub
 double[]array = new double[30]; 
 //output is 3
-int [ ] fun = new int [5];
+int [ ] fun = new int [6]; //0 - n-1
 fun[0] = 1;
 fun[1] = 2;
 fun[2] = 3;
 fun[3] = 4;
-fun[4] = 5;	
+fun[4] = 5;
+fun[5] = 6;
 String average;
 
 /*String val="6";
@@ -25,8 +26,12 @@ System.out.println(1+c);
 String name=(Integer.toString(totsal)+Integer.toString(c));
 System.out.println(name+5);
 System.out.println(Integer.parseInt(val)+5);*/
-
-System.out.println("average: "+(fun[0]+fun[1]+fun[2]+fun[3]+fun[4])/5);	
+int sumFun =0 ;
+for(int i = 0 ; i< fun.length;i++) {
+	sumFun+=fun[i];
+}
+float res = sumFun/fun.length;
+System.out.println("average: "+res);	
 
 
 int []copyfun = fun;
@@ -38,13 +43,19 @@ int []copyfun = fun;
 	
 	}
 	
-    ArrayList<Integer>fun1= new ArrayList<Integer>(fun.length);
+    ArrayList<Integer> fun1= new ArrayList<Integer>(fun.length);
 	
 	for(int store:fun)
     {
-	//fun1.add(store);
-	System.out.println(store);
-		
+	fun1.add(store); // copy fun to fun1
+	}
+	
+	for (int item:fun1)
+	{
+		System.out.println(item); // retrieving value from fun1
+	}
+	for(int i = 0 ; i < fun1.size() ; i++ ) {
+		System.out.println(fun1.get(i));
 	}
 String values= "HAPPY PROGRAMMING";
 String[] Values =values.split("A");
@@ -52,6 +63,11 @@ for(String item:Values)
 {
 	System.out.println(item);
 }
+ 
+values = values.replaceAll("A", "B");
+System.out.println(values);
+
+
 char ch='a';
 String str=Character.toString(ch);
 System.out.println("String: "+str);
@@ -93,17 +109,26 @@ else
 	 i=i/10;	
 	
  	}
+	// int resInt = Integer.reverse(i);
+	
 int y=10;
-int sum=0;
+
 while(y==10)
 {
+	int sum=0;
 	sum=(y*(y+1))/2;
 	System.out.println("First 10 natural numbers:" + sum);
 y++;
 
+} //wrong ! 
+
+int naturalnum = 1;
+int sumOfNatNum = 0;
+while(naturalnum <=10 ) {
+	sumOfNatNum+= naturalnum;
+	naturalnum++;
 }
-
-
+System.out.println("Sum of First 10 Natural numbers:"+sumOfNatNum);
 }
 	
 }
