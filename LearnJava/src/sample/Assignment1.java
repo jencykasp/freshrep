@@ -11,7 +11,7 @@ public class Assignment1 {
 		char e='H';
 		final int sal= 1000;
 		double i=100.235;
-		int j=(int)100.235;
+		int j=(int)i;
 		int k=99;
 		double l=99.9999;
 		String s="54321";	
@@ -32,7 +32,7 @@ public class Assignment1 {
 	//System.out.println(Integer.parseInt(t));
 	int y=(Integer.parseInt(t));
 	
-	System.out.println(t.equals(y));
+	System.out.println(y == 1000);
 	
 		/*int sal=2000;
 		Exception in thread "main" java.lang.Error: Unresolved compilation problem: 
@@ -48,13 +48,12 @@ public class Assignment1 {
 	   /* Which declaration will throw an error?
 	    		double num = 8; - (Error because its a integer)
 	    		int averageGrade = 89.7; (Error because its a float value)
-	    		boolean done = false; -correct
-	    		String done = "true"; - correct */
+	    		 */
 		System.out.println(a);
 		System.out.println(a);
 		System.out.println(b);
 		System.out.println(c);
-		System.out.println(Integer.toString(d));
+		System.out.println(10 + c);
 		System.out.println(Integer.toString(e));
 		System.out.println(j);
 		System.out.println(k+l);
@@ -69,6 +68,11 @@ public class Assignment1 {
 		//System.out.println(t.equals(u));
 		//boolean v= t.equals(u);
 		//System.out.println(t.equals(t1));
+		boolean done = false;
+		
+		boolean result = true;
+		System.out.println(done);
+		System.out.println(result);
 	}
 	
 	}
