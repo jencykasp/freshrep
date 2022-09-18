@@ -1,5 +1,7 @@
 package dataTypes;
 
+import java.util.ArrayList;
+
 public class ClassesAndObjects {
 
 	public static void main(String args[]) {
@@ -40,7 +42,22 @@ public class ClassesAndObjects {
 		stud[2].Studying();
 		
 		stud[9].Studying();
+		
+		
+		//using Array List for creating Array of Objects
+		ArrayList<Student> studs = new ArrayList<Student>();
+		
+		studs.add(new Student());
+		
+		System.out.println(studs.size());
+		
+		studs.get(0).name = "Jency";
+		studs.get(0).rollNo = 1044;
+		studs.get(0).address =" TN";
+		System.out.println(studs.get(0).whatisyourRollNo());
+		studs.get(0).Studying();
 	}
+
 	
 }
 
@@ -57,10 +74,6 @@ class Student {
 	}
 	
 	public int whatisyourRollNo() {
-		//
-		//
-		//
-		//
 		
 		return rollNo;
 		
