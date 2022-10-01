@@ -15,23 +15,18 @@ public class multilevelinherit {
 	System.out.println(app.taste);
 	app.fresh = true;
 	System.out.println(app.fresh);
-	app.place();
+	app.DetailsOFApple();
 	}
 
 }
 
 class fruit {
-	String size="small";
-	/*int Siz = Integer.parseInt(size);
+	String size;  //"100"
 
-	public int getsize() {
-		System.out.println("size" + "small");
-		return Siz;
-	}*/
-void skin()
-{
-	System.out.println("good for skin");
-}
+	void skin()
+	{
+		System.out.println("good for skin");
+	}
 
 }
 
@@ -49,8 +44,10 @@ class shimlaapple extends apple {
 	String taste;
 	boolean fresh;
 
-	void place() {
+	void DetailsOFApple() {
 		System.out.println("It grows in hill");
-
+		System.out.println("Color of apple is "+ color);
+		System.out.println("Size of apple is "+ size);
+		System.out.println("Taste of apple is "+ taste);
 	}
 }
