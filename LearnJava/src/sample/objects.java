@@ -23,7 +23,11 @@ array[0].name="honey";
 array[0].rollno=100;
 array[0].address="honey1";
 array[0].studying();
+//array[0].getrollno();
 System.out.println(array[0].getrollno());
+System.out.println(array[0].name);
+//System.out.println(array[0].studying());
+
 	
 ArrayList<student> studs = new ArrayList<student>();
 
