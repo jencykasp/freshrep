@@ -1,0 +1,32 @@
+Assignment: Class and Objects
+class TermExam 
+{
+
+main() {
+// create object for Student.class
+
+}
+
+}
+
+class Student {
+// students properties like Name, RollNo, Standard , ParentsContactNo.
+// create object for Marks.class
+
+// create constructor to initialize student details and Marks
+
+// void studentDetails() //print student details 
+// void printResult() // print results based on marks obtained
+
+}
+
+
+class Marks {
+//create properties for Marks obtained in different subjects like Eng, Tamil, Maths..
+
+// create Constructor for initialize the marks 
+
+// create method for calculating results based on marks CalculateResult()
+
+// return boolean result for method GetResult()
+}
