@@ -1,0 +1,33 @@
+{id , name , className, LinkText<a> } - xpath - HTML Path
+
+1. Input box 
+	tag: input attributes { type="text"}
+	placeholderText - optional
+	
+Xpath :
+/html/body/div[1]/div[2]/div/div[3]/div/div/div[2]/form/div/div[1]/input
+/html/body/div[1]/div[2]/div/div[3]/div/div/div[2]/form/div/div[1]/input
+
+//form[@id="login_form"]//label[@for='email']/following-sibling::input
+//form[@id='login_form']//label[@for='passwd']/following-sibling::span/input
+
+Example for LinkText: 
+
+<a 	href="http://automationpractice.com/index.php?controller=password" 
+	title="Recover your forgotten password" rel="nofollow">
+
+Forgot your password?
+
+
+</a>
+
+
+1. Launch Website : http://automationpractice.com/index.php
+2. Click on the Sign in Button 
+3. Enter any valid email in "CREATE AN ACCOUNT" Section 
+4. Click on "CREATE AN ACCOUNT"
+
+1. Launch Website : http://automationpractice.com/index.php
+2. Click on the Sign in Button 
+3. Enter an Invalid email in "CREATE AN ACCOUNT" Section 
+4. Validate the Red Error Icon at the Input
