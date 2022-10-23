@@ -1,34 +1,43 @@
 package pageObjects;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
-public class LoginPage {
 
+public class LoginPage extends BasePage{
 	WebDriver driver;
-	By _usernameInput = By.id("user-name");
-	By _passwordInput = By.id("password");
-	By _loginButton = By.name("login-button");
-	
+		
+	By _signIn = By.linkText("Sign in");
+	By _emailIDInput = By.id("email_create");
+	By _createAccountButton = By.id("SubmitCreate");
+	By _validateEmailInput = By.xpath("//form[@id='create-account_form']//div[contains(@class,'form-group')]");
+			
 	public LoginPage(WebDriver driver) {
+		super(driver); // calls the constructor of BasePage
 		this.driver = driver;
 	}
 	
-	public void enterUserName(String name) {
-		WebElement username = driver.findElement(_usernameInput);
-		username.sendKeys(name);
+	public void clickSignIn() {
+		FindElement(_signIn).click();
 	}
 	
-	public void enterPassword(String pass) {
-	WebElement password = driver.findElement(_passwordInput);
-	password.sendKeys(pass);
+	public void enterEmail(String emailId) {
+		FindElement(_emailIDInput).sendKeys(emailId);	
+		FindElement(_emailIDInput).sendKeys(Keys.TAB);
 	}
 	
-	public void clickLogin() {
-		WebElement login = driver.findElement(_loginButton);
-		login.click();
+	public CreateAccountPage clickCreateAccount() {
+		FindElement(_createAccountButton).click();
+		return new CreateAccountPage(driver);
 	}
-
 	
+	public boolean isEmailValid() {
+		if(FindElement(_validateEmailInput).getAttribute("class").contains("form-ok")) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 }
