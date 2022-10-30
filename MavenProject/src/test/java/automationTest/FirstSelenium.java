@@ -8,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import dataEntity.CreateAccount;
 import pageObjects.CreateAccountPage;
 import pageObjects.LoginPage;
 
@@ -15,7 +16,7 @@ import pageObjects.LoginPage;
 public class FirstSelenium {
 
 @Test
-public void CreateAccountEmailValidationforValidEmail() {
+public void CreateAccountEmailValidationforValidEmail() throws Exception {
 	System.setProperty("webdriver.chrome.driver", "D:\\Drivers\\chromedriver.exe");
 	
 	WebDriver driver = new ChromeDriver();
@@ -30,7 +31,20 @@ public void CreateAccountEmailValidationforValidEmail() {
 	
 	Assert.assertTrue(_login.isEmailValid(),"We Expected True but returned False");
 	
-	_login.clickCreateAccount();
+	//CreateAccountPage _accPage = new CreateAccountPage(driver);
+	CreateAccountPage _accPage=_login.clickCreateAccount();
+	CreateAccount values = new CreateAccount();
+	//read json file and Deserialize it as CreateAccount Object
+	values.setTitle("Mrs");
+	values.setFName("Vaidee");
+	values.setLName("Ssb");
+	values.setPassword("HelloWorld");
+	values.setEmail("vaidee@gmail.com");
+	values.setDate("31/January/1988");
+	values.SignUpforNewsLetter = true;
+	_accPage.FillForm(values);
+	
+	
 	driver.quit();
 }
 
@@ -50,7 +64,7 @@ public void CreateAccountEmailValidationforInValidEmail() {
 	
 	Assert.assertFalse(_login.isEmailValid(),"We Expected False but returned True");
 	
-	CreateAccountPage _createAcc= _login.clickCreateAccount();
+	_login.clickCreateAccount();
 	
 
 	driver.quit();
