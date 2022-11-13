@@ -6,6 +6,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import dataEntity.CreateAccount;
@@ -15,16 +17,28 @@ import pageObjects.LoginPage;
 
 public class FirstSelenium {
 
+	WebDriver driver;
+	
+	@BeforeMethod
+	public void SetupTest() {
+		System.setProperty("webdriver.chrome.driver", "D:\\Drivers\\chromedriver.exe");
+		
+		driver = new ChromeDriver();
+		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(60)); //for every page loading timeout
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(90)); //for every Element to be present in page, timeout.
+		
+		driver.get("http://automationpractice.com/index.php");
+	}
+	
+	@AfterMethod
+	public void TearDown() {
+		driver.quit();
+	}
+	
+	
 @Test
-public void CreateAccountEmailValidationforValidEmail() throws Exception {
-	System.setProperty("webdriver.chrome.driver", "D:\\Drivers\\chromedriver.exe");
+public void ValidLoginWithEmail() throws Exception {
 	
-	WebDriver driver = new ChromeDriver();
-	driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(60)); //for every page loading timeout
-	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(90)); //for every Element to be present in page, timeout.
-	
-	driver.get("http://automationpractice.com/index.php");
-
 	LoginPage _login = new LoginPage(driver);
 	_login.clickSignIn(); 
 	_login.enterEmail("vaidee@gmail.com");
@@ -45,19 +59,12 @@ public void CreateAccountEmailValidationforValidEmail() throws Exception {
 	_accPage.FillForm(values);
 	
 	
-	driver.quit();
+
 }
 
 @Test
-public void CreateAccountEmailValidationforInValidEmail() {
-	System.setProperty("webdriver.chrome.driver", "D:\\Drivers\\chromedriver.exe");
+public void ValidLoginWithUsername() {
 	
-	WebDriver driver = new ChromeDriver();
-	driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(60)); //for every page loading timeout
-	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(90)); //for every Element to be present in page, timeout.
-	
-	driver.get("http://automationpractice.com/index.php");
-
 	LoginPage _login = new LoginPage(driver);
 	_login.clickSignIn(); 
 	_login.enterEmail("aslksdkfjhsdf");
@@ -67,19 +74,10 @@ public void CreateAccountEmailValidationforInValidEmail() {
 	_login.clickCreateAccount();
 	
 
-	driver.quit();
-}
+	}
 
 @Test
-public void CreateAccountForEmailEntered() {
-System.setProperty("webdriver.chrome.driver", "D:\\Drivers\\chromedriver.exe");
-	
-	WebDriver driver = new ChromeDriver();
-	driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(60)); //for every page loading timeout
-	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(90)); //for every Element to be present in page, timeout.
-	driver.manage().window().maximize();
-	
-	driver.get("http://automationpractice.com/index.php");
+public void ValidLoginWithMobileNo() {
 	
 	LoginPage _login = new LoginPage(driver);
 	_login.clickSignIn(); 

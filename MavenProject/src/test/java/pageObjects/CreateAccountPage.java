@@ -1,6 +1,7 @@
 package pageObjects;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
@@ -31,15 +32,20 @@ public class CreateAccountPage extends BasePage {
 	
 	private void selectTitle(String value) throws Exception {
 		
-		if(value == "Mr") {
-			if(!FindElement(_TitleMr).isSelected())
-				FindElement(_TitleMr).click();
-			
-		} else if(value == "Mrs") {
-			if(!FindElement(_TitleMr).isSelected())
-				FindElement(_TitleMrs).click();
-		}else {
-			throw new Exception("Invalid Selection for Title");
+		try {
+			if(value == "Mr") {
+				if(!FindElement(_TitleMr).isSelected())
+					FindElement(_TitleMr).click();
+				
+			} else if(value == "Mrs") {
+				if(!FindElement(_TitleMr).isSelected())
+					FindElement(_TitleMrs).click();
+			}else {
+				throw new Exception("Invalid Selection for Title");
+			}
+		}
+		catch(NoSuchElementException e) {
+			// handle your code here
 		}
 	}
 	

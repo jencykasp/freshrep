@@ -1,6 +1,7 @@
 package pageObjects;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -12,7 +13,15 @@ public class BasePage {
 	}
 
 	public WebElement FindElement(By by) {
-		WebElement element = driver.findElement(by);
-		return element;
+		try {
+			WebElement element = driver.findElement(by);
+			return element;
+		}
+		catch(NoSuchElementException e) {
+			System.out.println(e.getMessage());
+			return null;
+		}
+		
+		
 	}
 }
