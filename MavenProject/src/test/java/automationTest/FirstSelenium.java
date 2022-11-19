@@ -5,9 +5,12 @@ import java.time.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import dataEntity.CreateAccount;
@@ -19,15 +22,24 @@ public class FirstSelenium {
 
 	WebDriver driver;
 	
+	@Parameters({"browser","URL"})
 	@BeforeMethod
-	public void SetupTest() {
-		System.setProperty("webdriver.chrome.driver", "D:\\Drivers\\chromedriver.exe");
+	public void SetupTest(String browser, String URL) throws Exception {
 		
-		driver = new ChromeDriver();
+		if(browser.equals("Chrome")) {
+			System.setProperty("webdriver.chrome.driver", "D:\\Drivers\\chromedriver.exe");
+			driver = new ChromeDriver();
+		} else if (browser.equals("Firefox"))
+		{
+			System.setProperty("webdriver..driver", "D:\\Drivers\\geckodriver.exe");
+			driver = new FirefoxDriver();
+		} else {
+			throw new Exception("Browser Name invalid ");
+		}
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(60)); //for every page loading timeout
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(90)); //for every Element to be present in page, timeout.
 		
-		driver.get("http://automationpractice.com/index.php");
+		driver.get(URL);
 	}
 	
 	@AfterMethod
@@ -36,10 +48,14 @@ public class FirstSelenium {
 	}
 	
 	
-@Test
-public void ValidLoginWithEmail() throws Exception {
+	@Test(dataProvider = "MultipleUsers")
+	public void ValidLoginWithEmail(String user , String password) throws Exception {
 	
-	LoginPage _login = new LoginPage(driver);
+		System.out.println("UserName is : " + user);
+		System.out.println("Password is : " + password);
+		
+		
+	/*LoginPage _login = new LoginPage(driver);
 	_login.clickSignIn(); 
 	_login.enterEmail("vaidee@gmail.com");
 	
@@ -58,9 +74,23 @@ public void ValidLoginWithEmail() throws Exception {
 	values.SignUpforNewsLetter = true;
 	_accPage.FillForm(values);
 	
-	
+	*/
 
-}
+	}
+	
+	@DataProvider(name = "MultipleUsers")
+	public Object[][] abcd() {
+		return new Object[][]
+				{
+			
+				{ "standard_user", "secret_sauce" },
+	            { "locked_out_user", "secret_sauce" },
+	            { "problem_user", "secret_sauce" },
+	            {"performance_glitch_user","secret_sauce"}
+			
+				};
+	}
+	
 
 @Test
 public void ValidLoginWithUsername() {

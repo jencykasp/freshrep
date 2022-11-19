@@ -1,22 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="SmokeTest">
+
   <test name="LoginTest">
+  
+  	
     <classes>
-      <class name="automationTest.ValidLogin">
-	      <methods>
-	      	<include name = "ValidLoginWithEmail" > </include>
-	      </methods>
-      </class>
-      <class name="automationTest.InvalidLogin"/>
+    <parameters name = "browser" value="Chrome"/>
+      <class name="automationTest.FirstSelenium"/>
     </classes>
   </test>
   
-  <test name="CartpageTest">
-    <classes>
-      <class name="automationTest.ItemsAdd"/>
-      <class name="automationTest.ItemsRemove"/>
-    </classes>
-  </test>
+  
   
 </suite> <!-- Suite -->
