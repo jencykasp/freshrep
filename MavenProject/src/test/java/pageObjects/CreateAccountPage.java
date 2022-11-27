@@ -34,6 +34,7 @@ public class CreateAccountPage extends BasePage {
 		
 		try {
 			if(value == "Mr") {
+				//WaitForElementInSecs(_TitleMr,60).click();
 				if(!FindElement(_TitleMr).isSelected())
 					FindElement(_TitleMr).click();
 				
